@@ -64,4 +64,23 @@ public class GildedRoseTest
 			}
 		}
 	}
+	
+	@Test
+	public void qualityNeverNegative()
+	{
+		for(Item dummyItem : dummyItemList)
+		{
+			dummyItem.setSellIn(0);
+		}
+		
+		for(int day = 0; day < 10; day ++)
+		{
+			GildedRose.passADay(dummyItemList);
+			
+			for(Item dummyItem : dummyItemList)
+			{
+				assertEquals(dummyItem.getQuality() < 0, false);
+			}
+		}
+	}
 }
