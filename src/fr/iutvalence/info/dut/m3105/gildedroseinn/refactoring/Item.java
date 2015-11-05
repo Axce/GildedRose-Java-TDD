@@ -15,12 +15,12 @@ public class Item
 
 	public void decreaseQuality(int decreaseAmount)
 	{
-		this.setSellIn(this.getSellIn() - decreaseAmount);
+		this.setQuality(this.getQuality() - decreaseAmount);
 	}
 	
 	public void decreaseSellIn(int decreaseAmount)
 	{
-		this.setQuality(this.getQuality() - decreaseAmount);
+		this.setSellIn(this.getSellIn() - decreaseAmount);
 	}
 	
 

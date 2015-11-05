@@ -25,6 +25,8 @@ public class GildedRose
 
 	public static void updateItem(Item item)
 	{	
+		if(item.getSellIn() <= 0)
+			item.decreaseQuality(1);
 		item.decreaseQuality(1);
 		item.decreaseSellIn(1);
 	}
