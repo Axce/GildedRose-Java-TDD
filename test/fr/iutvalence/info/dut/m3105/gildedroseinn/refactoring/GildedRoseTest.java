@@ -41,4 +41,24 @@ public class GildedRoseTest
 		}
 	}
 
+	@Test
+	public void qualityLowerTwiceAsFastWhenSellInIsPassed()
+	{
+		for(Item dummyItem : dummyItemList)
+		{
+			dummyItem.setSellIn(0);
+		}
+		
+		for(int day = 1; day < 6; day ++)
+		{
+			GildedRose.updateItems(dummyItemList);
+			
+			for(Item dummyItem : dummyItemList)
+			{
+				assertEquals(dummyItem.getQuality(), DUMMY_QUALITY - 2 * day);
+				assertEquals(dummyItem.getName(), DUMMY_NAME);
+				assertEquals(dummyItem.getSellIn(),-day);
+			}
+		}
+	}
 }
