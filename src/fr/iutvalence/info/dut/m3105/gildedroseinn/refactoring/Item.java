@@ -23,8 +23,6 @@ public class Item
 		this.setSellIn(this.getSellIn() - decreaseAmount);
 	}
 	
-
-	
 	public String getName()
 	{
 		return this.name;

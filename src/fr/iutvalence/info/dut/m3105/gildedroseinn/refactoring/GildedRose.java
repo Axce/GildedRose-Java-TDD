@@ -17,7 +17,7 @@ public class GildedRose
 	 * items.add(new Item("Conjured Mana Cake", 3, 6));
 	 */
 
-	public static void updateItems(List<Item> items)
+	public static void passADay(List<Item> items)
 	{
 		for (int indexInItemList = 0; indexInItemList < items.size(); indexInItemList++)
 			updateItem(items.get(indexInItemList));

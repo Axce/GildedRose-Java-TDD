@@ -31,13 +31,16 @@ public class GildedRoseTest
 	@Test
 	public void itemListItemsQualityDecreaseByOneEachDayWith()
 	{
-		GildedRose.updateItems(dummyItemList);
-		
-		for(Item dummyItem : dummyItemList)
+		for(int day = 1; day < 6; day ++)
 		{
-			assertEquals(DUMMY_QUALITY - 1, dummyItem.getQuality());
-			assertEquals(DUMMY_NAME, dummyItem.getName());
-			assertEquals(DUMMY_SELL_IN - 1, dummyItem.getSellIn());
+			GildedRose.passADay(dummyItemList);
+			
+			for(Item dummyItem : dummyItemList)
+			{
+				assertEquals(DUMMY_QUALITY - day, dummyItem.getQuality());
+				assertEquals(DUMMY_NAME, dummyItem.getName());
+				assertEquals(DUMMY_SELL_IN - day, dummyItem.getSellIn());
+			}
 		}
 	}
 
@@ -51,7 +54,7 @@ public class GildedRoseTest
 		
 		for(int day = 1; day < 6; day ++)
 		{
-			GildedRose.updateItems(dummyItemList);
+			GildedRose.passADay(dummyItemList);
 			
 			for(Item dummyItem : dummyItemList)
 			{
