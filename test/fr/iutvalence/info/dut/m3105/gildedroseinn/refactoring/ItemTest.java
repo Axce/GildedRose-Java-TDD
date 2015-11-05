@@ -18,22 +18,22 @@ public class ItemTest
 	@Test
 	public void gettersShouldReturnConstructorParameters()
 	{
-			assertEquals(dummyItem.getName(),"Backstage passes to a TAFKAL80ETC concert");
-			assertEquals(dummyItem.getSellIn(),15);
-			assertEquals(dummyItem.getQuality(),20);
+			assertEquals("Backstage passes to a TAFKAL80ETC concert", dummyItem.getName());
+			assertEquals(15, dummyItem.getSellIn());
+			assertEquals(20, dummyItem.getQuality());
 	}
 
 	@Test
 	public void gettersShouldReturnNewValueOfParameters()
 	{
 			dummyItem.setName("Jambon");
-			assertEquals(dummyItem.getName(),"Jambon");
+			assertEquals("Jambon", dummyItem.getName());
 			
 			dummyItem.setSellIn(4);
-			assertEquals(dummyItem.getSellIn(),4);
+			assertEquals(4, dummyItem.getSellIn());
 			
 			dummyItem.setQuality(8);
-			assertEquals(dummyItem.getQuality(),8);
+			assertEquals(8, dummyItem.getQuality());
 	}
 	
 }

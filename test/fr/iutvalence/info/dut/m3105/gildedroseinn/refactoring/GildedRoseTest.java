@@ -35,9 +35,9 @@ public class GildedRoseTest
 		
 		for(Item dummyItem : dummyItemList)
 		{
-			assertEquals(dummyItem.getQuality(), DUMMY_QUALITY - 1);
-			assertEquals(dummyItem.getName(), DUMMY_NAME);
-			assertEquals(dummyItem.getSellIn(), DUMMY_SELL_IN - 1);
+			assertEquals(DUMMY_QUALITY - 1, dummyItem.getQuality());
+			assertEquals(DUMMY_NAME, dummyItem.getName());
+			assertEquals(DUMMY_SELL_IN - 1, dummyItem.getSellIn());
 		}
 	}
 
@@ -55,9 +55,9 @@ public class GildedRoseTest
 			
 			for(Item dummyItem : dummyItemList)
 			{
-				assertEquals(dummyItem.getQuality(), DUMMY_QUALITY - 2 * day);
-				assertEquals(dummyItem.getName(), DUMMY_NAME);
-				assertEquals(dummyItem.getSellIn(),-day);
+				assertEquals(DUMMY_QUALITY - 2 * day, dummyItem.getQuality());
+				assertEquals(DUMMY_NAME, dummyItem.getName());
+				assertEquals(-day, dummyItem.getSellIn());
 			}
 		}
 	}
