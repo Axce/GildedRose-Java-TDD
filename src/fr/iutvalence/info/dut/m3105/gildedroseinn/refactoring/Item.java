@@ -16,6 +16,8 @@ public class Item
 	public void decreaseQuality(int decreaseAmount)
 	{
 		this.setQuality(this.getQuality() - decreaseAmount);
+		if (this.quality < 0)
+			this.quality = 0;
 	}
 	
 	public void decreaseSellIn(int decreaseAmount)
