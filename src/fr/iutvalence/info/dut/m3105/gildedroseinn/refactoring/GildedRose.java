@@ -5,6 +5,7 @@ import java.util.List;
 public class GildedRose
 {
 
+	private static final String	SULFURAS_HAND_OF_RAGNAROS	= "Sulfuras, Hand of Ragnaros";
 	private static final String	AGED_BRIE	= "Aged Brie";
 
 	/*
@@ -96,7 +97,7 @@ public class GildedRose
 
 	private static boolean isNotLegendary(Item item)
 	{
-		return item.getName() != "Sulfuras, Hand of Ragnaros";
+		return item.getName() != SULFURAS_HAND_OF_RAGNAROS;
 	}
 	
 }
