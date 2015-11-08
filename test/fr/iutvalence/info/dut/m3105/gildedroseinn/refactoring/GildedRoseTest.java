@@ -10,6 +10,8 @@ import org.junit.Test;
 public class GildedRoseTest
 {
 	
+	private static final int	SULFURAS_QUALITY	= 80;
+	private static final String	SULFURAS_HAND_OF_RAGNAROS	= "Sulfuras, Hand of Ragnaros";
 	private static final String	AGED_BRIE	= "Aged Brie";
 	private static final int	DUMMY_SELL_IN	= 20;
 	private static final int	DUMMY_QUALITY	= 10;
@@ -145,7 +147,28 @@ public class GildedRoseTest
 				assertEquals(dummyItem.getQuality() > 50, false);
 			}
 		}
+	}
+	
+	@Test
+	public void legendaryItemsNeverDecreasesInQuality()
+	{
+		for(Item dummyItem : dummyItemList)
+		{
+			dummyItem.setName(SULFURAS_HAND_OF_RAGNAROS);
+			dummyItem.setQuality(SULFURAS_QUALITY);
+			dummyItem.setSellIn(0);
+		}
+		
+		for(int day = 0; day < 10; day ++)
+		{
+			GildedRose.passADay(dummyItemList);
+			
+			for(Item dummyItem : dummyItemList)
+			{
+				assertEquals(SULFURAS_QUALITY, dummyItem.getQuality());
+				assertEquals(0, dummyItem.getSellIn());
+			}
+		}
 
 	}
-
 }
