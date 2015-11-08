@@ -208,7 +208,7 @@ public class GildedRoseTest
 			for(Item dummyItem : dummyItemList)
 			{
 				assertEquals(DUMMY_QUALITY + 2*day, dummyItem.getQuality());
-				assertEquals(DUMMY_SELL_IN - day, dummyItem.getSellIn());
+				assertEquals(10 - day, dummyItem.getSellIn());
 			}
 		}
 

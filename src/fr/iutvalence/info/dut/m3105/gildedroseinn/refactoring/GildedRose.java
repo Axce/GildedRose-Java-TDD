@@ -71,6 +71,8 @@ public class GildedRose
 	private static void updateBackstagePassesQuality(Item item)
 	{	
 		increaseItemQuality(item, 1);
+		if (item.getSellIn() <= 10)
+			increaseItemQuality(item, 1);
 	}
 	
 	/*
