@@ -86,7 +86,7 @@ public class GildedRoseTest
 	}
 	
 	@Test
-	public void AgedBrieIncreasesInQualityAsOlderItGetsForPositiveSellin()
+	public void agedBrieIncreasesInQualityAsOlderItGetsForPositiveSellin()
 	{
 		for(Item dummyItem : dummyItemList)
 		{
@@ -107,7 +107,7 @@ public class GildedRoseTest
 	}
 	
 	@Test
-	public void AgedBrieIncreasesInQualityTwiceAsFastWhenSellInIsPassed()
+	public void agedBrieIncreasesInQualityTwiceAsFastWhenSellInIsPassed()
 	{
 		for(Item dummyItem : dummyItemList)
 		{
@@ -126,6 +126,5 @@ public class GildedRoseTest
 				assertEquals(- day, dummyItem.getSellIn());
 			}
 		}
-
 	}
 }
