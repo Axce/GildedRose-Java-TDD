@@ -104,6 +104,28 @@ public class GildedRoseTest
 				assertEquals(DUMMY_SELL_IN - day, dummyItem.getSellIn());
 			}
 		}
+	}
+	
+	@Test
+	public void AgedBrieIncreasesInQualityTwiceAsFastWhenSellInIsPassed()
+	{
+		for(Item dummyItem : dummyItemList)
+		{
+			dummyItem.setName(AGED_BRIE);
+			dummyItem.setSellIn(0);
+		}
+
+		for(int day = 1; day < 6; day ++)
+		{
+			GildedRose.passADay(dummyItemList);
+			
+			for(Item dummyItem : dummyItemList)
+			{
+				assertEquals(DUMMY_QUALITY + 2 * day, dummyItem.getQuality());
+				assertEquals(AGED_BRIE, dummyItem.getName());
+				assertEquals(DUMMY_SELL_IN - day, dummyItem.getSellIn());
+			}
+		}
 
 	}
 }
