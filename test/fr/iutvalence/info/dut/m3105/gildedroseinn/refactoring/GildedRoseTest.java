@@ -221,7 +221,7 @@ public class GildedRoseTest
 			dummyItem.setName(BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT);
 			dummyItem.setSellIn(5);
 		}
-
+		
 		for(int day = 1; day < 6; day ++)
 		{
 			GildedRose.passADay(dummyItemList);
@@ -230,6 +230,27 @@ public class GildedRoseTest
 			{
 				assertEquals(DUMMY_QUALITY + 3 * day, dummyItem.getQuality());
 				assertEquals(5 - day, dummyItem.getSellIn());
+			}
+		}
+	}
+	
+	@Test
+	public void backstagePassesQualityDropsTo0AfterTheConcert()
+	{
+		for(Item dummyItem : dummyItemList)
+		{
+			dummyItem.setName(BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT);
+			dummyItem.setSellIn(0);
+		}
+
+		for(int day = 1; day < 6; day ++)
+		{
+			GildedRose.passADay(dummyItemList);
+			
+			for(Item dummyItem : dummyItemList)
+			{
+				assertEquals(0, dummyItem.getQuality());
+				assertEquals(-day, dummyItem.getSellIn());
 			}
 		}
 	}
