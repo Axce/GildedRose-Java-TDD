@@ -5,6 +5,7 @@ import java.util.List;
 public class GildedRose
 {
 
+	private static final String	BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT	= "Backstage passes to a TAFKAL80ETC concert";
 	private static final String	SULFURAS_HAND_OF_RAGNAROS	= "Sulfuras, Hand of Ragnaros";
 	private static final String	AGED_BRIE	= "Aged Brie";
 
@@ -31,13 +32,18 @@ public class GildedRose
 
 	public static void updateItem(Item item)
 	{	
-		if (item.getName() == AGED_BRIE)
+		switch (item.getName())
 		{
-			updateAgedBrieQuality(item);
-		}
-		else
-		{
-			updateDefaultItemQuality(item);
+			case AGED_BRIE:
+				updateAgedBrieQuality(item);
+				break;
+			
+			case BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT:
+				updateBackstagePassesQuality(item);
+				break;
+				
+			default:
+				updateDefaultItemQuality(item);
 		}
 		
 		decreaseItemSellIn(item, 1);
@@ -59,6 +65,11 @@ public class GildedRose
 	{	
 		if(item.getSellIn() <= 0)
 			increaseItemQuality(item, 1);
+		increaseItemQuality(item, 1);
+	}
+	
+	private static void updateBackstagePassesQuality(Item item)
+	{	
 		increaseItemQuality(item, 1);
 	}
 	
