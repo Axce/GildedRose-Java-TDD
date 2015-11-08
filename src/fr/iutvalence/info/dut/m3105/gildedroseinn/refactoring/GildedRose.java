@@ -5,6 +5,8 @@ import java.util.List;
 public class GildedRose
 {
 
+	private static final String	AGED_BRIE	= "Aged Brie";
+
 	/*
 	 * The code below is intended to help writing test fixtures
 	 * 
@@ -25,9 +27,17 @@ public class GildedRose
 
 	public static void updateItem(Item item)
 	{	
-		if(item.getSellIn() <= 0)
+		if (item.getName() == AGED_BRIE)
+		{
+			item.increaseQuality(1);
+		}
+		else
+		{
+			if(item.getSellIn() <= 0)
+				item.decreaseQuality(1);
 			item.decreaseQuality(1);
-		item.decreaseQuality(1);
+
+		}
 		item.decreaseSellIn(1);
 	}
 

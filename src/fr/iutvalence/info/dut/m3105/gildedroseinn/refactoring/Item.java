@@ -25,6 +25,11 @@ public class Item
 		this.setSellIn(this.getSellIn() - decreaseAmount);
 	}
 	
+	public void increaseQuality(int increaseAmount)
+	{
+		this.setQuality(this.getQuality() + increaseAmount);
+	}
+
 	public String getName()
 	{
 		return this.name;
