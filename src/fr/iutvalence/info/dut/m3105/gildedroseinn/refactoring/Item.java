@@ -13,28 +13,6 @@ public class Item
 		this.setQuality(quality);
 	}
 
-	public void decreaseQuality(int decreaseAmount)
-	{
-		this.setQuality(this.getQuality() - decreaseAmount);
-		setQualityToNullIfNegative();
-	}
-
-	private void setQualityToNullIfNegative()
-	{
-		if (this.quality < 0)
-			this.quality = 0;
-	}
-	
-	public void decreaseSellIn(int decreaseAmount)
-	{
-		this.setSellIn(this.getSellIn() - decreaseAmount);
-	}
-	
-	public void increaseQuality(int increaseAmount)
-	{
-		this.setQuality(this.getQuality() + increaseAmount);
-	}
-
 	public String getName()
 	{
 		return this.name;

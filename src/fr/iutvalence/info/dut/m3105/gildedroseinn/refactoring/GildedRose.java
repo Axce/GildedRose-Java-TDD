@@ -29,13 +29,13 @@ public class GildedRose
 	{	
 		if (item.getName() == AGED_BRIE)
 		{
-			item.increaseQuality(1);
+			increaseItemQuality(item, 1);
 		}
 		else
 		{
 			if(item.getSellIn() <= 0)
-				item.decreaseQuality(1);
-			item.decreaseQuality(1);
+				decreaseItemQuality(item, 1);
+			decreaseItemQuality(item, 1);
 
 		}
 		updateItemSellIn(item);
@@ -43,7 +43,30 @@ public class GildedRose
 
 	private static void updateItemSellIn(Item item)
 	{
-		item.decreaseSellIn(1);
+		decreaseItemSellIn(item, 1);
 	}
 
+	private static void decreaseItemQuality(Item item, int decreaseAmount)
+	{
+		item.setQuality(item.getQuality() - decreaseAmount);
+		setItemQualityToNullIfNegative(item);
+	}
+	
+	private static void increaseItemQuality(Item item, int increaseAmount)
+	{
+		item.setQuality(item.getQuality() + increaseAmount);
+	}
+
+	private static void setItemQualityToNullIfNegative(Item item)
+	{
+		if (item.getQuality() < 0)
+			item.setQuality(0);
+	}
+
+	private static void decreaseItemSellIn(Item item, int decreaseAmount)
+	{
+		item.setSellIn(item.getSellIn() - decreaseAmount);
+	}
+
+	
 }
