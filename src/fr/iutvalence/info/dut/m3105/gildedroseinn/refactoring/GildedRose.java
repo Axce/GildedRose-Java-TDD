@@ -29,22 +29,36 @@ public class GildedRose
 	{	
 		if (item.getName() == AGED_BRIE)
 		{
-			increaseItemQuality(item, 1);
+			updateAgedBrieQuality(item);
 		}
 		else
 		{
-			if(item.getSellIn() <= 0)
-				decreaseItemQuality(item, 1);
-			decreaseItemQuality(item, 1);
-
+			updateDefaultItemQuality(item);
 		}
-		updateItemSellIn(item);
-	}
-
-	private static void updateItemSellIn(Item item)
-	{
+		
 		decreaseItemSellIn(item, 1);
 	}
+
+	
+	/*
+	 * DIFFERENT QUALITY UPDATES - BEGIN
+	 */
+	
+	private static void updateDefaultItemQuality(Item item)
+	{
+		if(item.getSellIn() <= 0)
+			decreaseItemQuality(item, 1);
+		decreaseItemQuality(item, 1);
+	}
+
+	private static void updateAgedBrieQuality(Item item)
+	{
+		increaseItemQuality(item, 1);
+	}
+	
+	/*
+	 * DIFFERENT QUALITY UPDATES - END
+	 */
 
 	private static void decreaseItemQuality(Item item, int decreaseAmount)
 	{
