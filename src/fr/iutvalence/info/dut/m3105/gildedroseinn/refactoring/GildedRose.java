@@ -5,6 +5,7 @@ import java.util.List;
 public class GildedRose
 {
 
+	private static final String	CONJURED_MANA_CAKE	= "Conjured Mana Cake";
 	private static final String	BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT	= "Backstage passes to a TAFKAL80ETC concert";
 	private static final String	SULFURAS_HAND_OF_RAGNAROS	= "Sulfuras, Hand of Ragnaros";
 	private static final String	AGED_BRIE	= "Aged Brie";
@@ -40,6 +41,10 @@ public class GildedRose
 			
 			case BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT:
 				updateBackstagePassesQuality(item);
+				break;
+				
+			case CONJURED_MANA_CAKE:
+				updateConjuredItemQuality(item);
 				break;
 				
 			default:
@@ -80,9 +85,15 @@ public class GildedRose
 		}
 		else
 			item.setQuality(0);
-		
 	}
 	
+	private static void updateConjuredItemQuality(Item item)
+	{
+		if(item.getSellIn() <= 0)
+			decreaseItemQuality(item, 2);
+		decreaseItemQuality(item, 2);
+	}
+
 	/*
 	 * DIFFERENT QUALITY UPDATES - END
 	 */
