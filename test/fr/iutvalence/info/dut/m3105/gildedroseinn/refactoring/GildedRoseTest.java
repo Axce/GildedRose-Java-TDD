@@ -10,6 +10,7 @@ import org.junit.Test;
 public class GildedRoseTest
 {
 	
+	private static final String	CONJURED_MANA_CAKE	= "Conjured Mana Cake";
 	private static final String	BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT	= "Backstage passes to a TAFKAL80ETC concert";
 	private static final int	SULFURAS_QUALITY	= 80;
 	private static final String	SULFURAS_HAND_OF_RAGNAROS	= "Sulfuras, Hand of Ragnaros";
@@ -242,7 +243,7 @@ public class GildedRoseTest
 			dummyItem.setName(BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT);
 			dummyItem.setSellIn(0);
 		}
-
+		
 		for(int day = 1; day < 6; day ++)
 		{
 			GildedRose.passADay(dummyItemList);
@@ -251,6 +252,26 @@ public class GildedRoseTest
 			{
 				assertEquals(0, dummyItem.getQuality());
 				assertEquals(-day, dummyItem.getSellIn());
+			}
+		}
+	}
+	
+	@Test
+	public void conjuredItemsDegradeInQualityTwiceAsFastAsNormalItems()
+	{
+		for(Item dummyItem : dummyItemList)
+		{
+			dummyItem.setName(CONJURED_MANA_CAKE);
+		}
+
+		for(int day = 1; day < 6; day ++)
+		{
+			GildedRose.passADay(dummyItemList);
+			
+			for(Item dummyItem : dummyItemList)
+			{
+				assertEquals(DUMMY_QUALITY - 2 * day, dummyItem.getQuality());
+				assertEquals(DUMMY_SELL_IN - day, dummyItem.getSellIn());
 			}
 		}
 	}
