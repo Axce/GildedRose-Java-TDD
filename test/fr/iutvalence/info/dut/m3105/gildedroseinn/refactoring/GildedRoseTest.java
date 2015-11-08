@@ -127,4 +127,25 @@ public class GildedRoseTest
 			}
 		}
 	}
+	
+	@Test
+	public void qualityNeverGreaterThan50()
+	{
+		for(Item dummyItem : dummyItemList)
+		{
+			dummyItem.setName(AGED_BRIE);
+		}
+		
+		for(int day = 0; day < 100; day ++)
+		{
+			GildedRose.passADay(dummyItemList);
+			
+			for(Item dummyItem : dummyItemList)
+			{
+				assertEquals(dummyItem.getQuality() > 50, false);
+			}
+		}
+
+	}
+
 }
