@@ -38,6 +38,11 @@ public class GildedRose
 			item.decreaseQuality(1);
 
 		}
+		updateItemSellIn(item);
+	}
+
+	private static void updateItemSellIn(Item item)
+	{
 		item.decreaseSellIn(1);
 	}
 

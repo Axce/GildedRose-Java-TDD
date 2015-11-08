@@ -16,6 +16,11 @@ public class Item
 	public void decreaseQuality(int decreaseAmount)
 	{
 		this.setQuality(this.getQuality() - decreaseAmount);
+		setQualityToNullIfNegative();
+	}
+
+	private void setQualityToNullIfNegative()
+	{
 		if (this.quality < 0)
 			this.quality = 0;
 	}
