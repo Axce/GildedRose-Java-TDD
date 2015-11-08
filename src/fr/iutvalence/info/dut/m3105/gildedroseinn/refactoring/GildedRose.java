@@ -71,12 +71,19 @@ public class GildedRose
 	private static void increaseItemQuality(Item item, int increaseAmount)
 	{
 		item.setQuality(item.getQuality() + increaseAmount);
+		setItemQualityTo50IfGreater(item);
 	}
 
 	private static void setItemQualityToNullIfNegative(Item item)
 	{
 		if (item.getQuality() < 0)
 			item.setQuality(0);
+	}
+	
+	private static void setItemQualityTo50IfGreater(Item item)
+	{
+		if (item.getQuality() > 50)
+			item.setQuality(50);
 	}
 
 	private static void decreaseItemSellIn(Item item, int decreaseAmount)
