@@ -200,6 +200,27 @@ public class GildedRoseTest
 			dummyItem.setName(BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT);
 			dummyItem.setSellIn(10);
 		}
+		
+		for(int day = 1; day < 6; day ++)
+		{
+			GildedRose.passADay(dummyItemList);
+			
+			for(Item dummyItem : dummyItemList)
+			{
+				assertEquals(DUMMY_QUALITY + 2 * day, dummyItem.getQuality());
+				assertEquals(10 - day, dummyItem.getSellIn());
+			}
+		}
+	}
+	
+	@Test
+	public void backstagePassesQualityIncreasesBy3WhenThereAre5DaysOrLess()
+	{
+		for(Item dummyItem : dummyItemList)
+		{
+			dummyItem.setName(BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT);
+			dummyItem.setSellIn(5);
+		}
 
 		for(int day = 1; day < 6; day ++)
 		{
@@ -207,11 +228,10 @@ public class GildedRoseTest
 			
 			for(Item dummyItem : dummyItemList)
 			{
-				assertEquals(DUMMY_QUALITY + 2*day, dummyItem.getQuality());
+				assertEquals(DUMMY_QUALITY + 3 * day, dummyItem.getQuality());
 				assertEquals(10 - day, dummyItem.getSellIn());
 			}
 		}
-
 	}
 
 }
