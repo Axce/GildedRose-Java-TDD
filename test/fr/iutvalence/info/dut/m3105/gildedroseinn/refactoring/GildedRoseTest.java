@@ -10,6 +10,7 @@ import org.junit.Test;
 public class GildedRoseTest
 {
 	
+	private static final String	BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT	= "Backstage passes to a TAFKAL80ETC concert";
 	private static final int	SULFURAS_QUALITY	= 80;
 	private static final String	SULFURAS_HAND_OF_RAGNAROS	= "Sulfuras, Hand of Ragnaros";
 	private static final String	AGED_BRIE	= "Aged Brie";
@@ -169,6 +170,27 @@ public class GildedRoseTest
 				assertEquals(0, dummyItem.getSellIn());
 			}
 		}
+	}
+	
+	@Test
+	public void backstagePassesIncreaseInQualityAsSellInValueApproaches()
+	{
+		for(Item dummyItem : dummyItemList)
+		{
+			dummyItem.setName(BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT);
+		}
+
+		for(int day = 1; day < 6; day ++)
+		{
+			GildedRose.passADay(dummyItemList);
+			
+			for(Item dummyItem : dummyItemList)
+			{
+				assertEquals(DUMMY_QUALITY + day, dummyItem.getQuality());
+				assertEquals(DUMMY_SELL_IN - day, dummyItem.getSellIn());
+			}
+		}
 
 	}
+
 }
