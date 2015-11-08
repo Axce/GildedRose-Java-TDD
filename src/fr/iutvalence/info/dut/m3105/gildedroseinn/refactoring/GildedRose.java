@@ -73,6 +73,8 @@ public class GildedRose
 		increaseItemQuality(item, 1);
 		if (item.getSellIn() <= 10)
 			increaseItemQuality(item, 1);
+		if (item.getSellIn() <= 5)
+			increaseItemQuality(item, 1);
 	}
 	
 	/*
