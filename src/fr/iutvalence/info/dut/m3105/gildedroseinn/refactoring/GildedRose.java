@@ -22,7 +22,10 @@ public class GildedRose
 	public static void passADay(List<Item> items)
 	{
 		for (int indexInItemList = 0; indexInItemList < items.size(); indexInItemList++)
-			updateItem(items.get(indexInItemList));
+		{
+			if (items.get(indexInItemList).getName() != "Sulfuras, Hand of Ragnaros")
+				updateItem(items.get(indexInItemList));
+		}
 	}
 
 	public static void updateItem(Item item)
