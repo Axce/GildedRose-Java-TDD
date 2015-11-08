@@ -123,7 +123,7 @@ public class GildedRoseTest
 			{
 				assertEquals(DUMMY_QUALITY + 2 * day, dummyItem.getQuality());
 				assertEquals(AGED_BRIE, dummyItem.getName());
-				assertEquals(DUMMY_SELL_IN - day, dummyItem.getSellIn());
+				assertEquals(- day, dummyItem.getSellIn());
 			}
 		}
 

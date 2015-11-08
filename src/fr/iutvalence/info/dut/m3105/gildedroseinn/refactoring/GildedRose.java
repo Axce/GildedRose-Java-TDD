@@ -52,7 +52,9 @@ public class GildedRose
 	}
 
 	private static void updateAgedBrieQuality(Item item)
-	{
+	{	
+		if(item.getSellIn() <= 0)
+			increaseItemQuality(item, 1);
 		increaseItemQuality(item, 1);
 	}
 	
